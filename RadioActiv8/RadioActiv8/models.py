@@ -158,7 +158,7 @@ class Patrol(models.Model):
     bonus_points = models.IntegerField(default=0)
     gps_tracker = models.OneToOneField(GPSTracker, blank=True, null=True, on_delete=models.SET_NULL)
     preferred_bases = models.ManyToManyField(Base, blank=True, related_name='patrol_preferred')
-    member_class = models.ForeignKey(MemberClass, blank=True, null=True, on_delete=models.SET_NULL)
+    member_classes = models.ManyToManyField(MemberClass, blank=True)
     project_patrol = models.BooleanField(default=False)
 
     class Meta:
